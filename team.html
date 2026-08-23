@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Meet the Team | SYNERGY</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    .team-page {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* HERO */
+
+    .team-hero {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 60px;
+  align-items: center;
+
+  min-height: 85vh;
+  padding: 80px 0 75px;
+}
+
+    .team-hero .eyebrow {
+      margin-bottom: 18px;
+      color: var(--pink);
+    }
+
+    .team-hero h1 {
+      position: relative;
+      z-index: 2;
+
+      max-width: 900px;
+      margin: 0;
+
+      font-family: "Noot", sans-serif;
+      font-size: clamp(65px, 10vw, 125px);
+      line-height: 1.18;
+      letter-spacing: 0.01em;
+
+      color: var(--ink);
+    }
+
+    .team-hero h1 .pink {
+      color: var(--pink);
+    }
+
+    .team-hero h1 .yellow {
+      color: var(--yellow);
+
+      -webkit-text-stroke: 1px var(--ink);
+    }
+
+    .team-intro {
+      max-width: 560px;
+      margin: 30px 0 0;
+
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+
+    /* HERO DOODLES */
+
+    .team-doodle {
+      position: absolute;
+      z-index: 1;
+
+      font-family: "Noot", sans-serif;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .team-star-one {
+      top: 70px;
+      right: 12%;
+
+      color: var(--yellow);
+      font-size: 55px;
+
+      transform: rotate(15deg);
+    }
+
+    .team-star-two {
+      top: 150px;
+      right: 5%;
+
+      color: var(--pink);
+      font-size: 35px;
+
+      transform: rotate(-10deg);
+    }
+
+    .team-heart {
+      bottom: 80px;
+      right: 20%;
+
+      color: var(--pink);
+      font-size: 50px;
+
+      transform: rotate(12deg);
+    }
+
+    .team-arrow {
+      bottom: 30px;
+      left: 48%;
+
+      color: var(--yellow);
+      font-size: 60px;
+
+      transform: rotate(15deg);
+    }
+
+
+    /* TEAM GRID */
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 40px 30px;
+
+      padding: 30px 0 120px;
+    }
+
+
+    /* MEMBER CARD */
+
+    .member-card {
+      position: relative;
+
+      padding: 18px 18px 28px;
+
+      border: 3px solid var(--ink);
+      background: white;
+
+      box-shadow: 9px 9px 0 var(--yellow);
+
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .member-card:nth-child(even) {
+      box-shadow: 9px 9px 0 var(--pink);
+    }
+
+    .member-card:nth-child(odd) {
+      transform: rotate(-0.6deg);
+    }
+
+    .member-card:nth-child(even) {
+      transform: rotate(0.6deg);
+    }
+
+    .member-card:hover {
+      transform: rotate(0deg) translateY(-7px);
+      box-shadow: 13px 13px 0 var(--pink);
+    }
+
+    .member-card:nth-child(even):hover {
+      box-shadow: 13px 13px 0 var(--yellow);
+    }
+
+
+    /* PHOTO */
+
+    .member-photo {
+      position: relative;
+      overflow: hidden;
+
+      width: 100%;
+      aspect-ratio: 4 / 5;
+
+      background: var(--paper-2);
+      border: 2px solid var(--ink);
+    }
+
+    .member-photo img {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+      object-fit: cover;
+
+      transition: transform 0.4s ease;
+    }
+
+    .member-card:hover .member-photo img {
+      transform: scale(1.025);
+    }
+
+
+    /* POSITION STICKER */
+
+    .member-role {
+      position: absolute;
+      top: -13px;
+      right: 20px;
+
+      z-index: 5;
+
+      padding: 8px 15px;
+
+      background: var(--yellow);
+      border: 2px solid var(--ink);
+
+      font-family: "Noot", sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+
+      transform: rotate(3deg);
+    }
+
+    .member-card:nth-child(even) .member-role {
+      background: var(--pink);
+      color: white;
+
+      transform: rotate(-3deg);
+    }
+
+
+    /* MEMBER TEXT */
+
+    .member-info {
+      position: relative;
+      padding: 24px 8px 0;
+    }
+
+    .member-name {
+      margin: 0;
+
+      font-family: "Noot", sans-serif;
+      font-size: clamp(35px, 4vw, 52px);
+      line-height: 1;
+
+      color: var(--pink);
+    }
+
+    .member-card:nth-child(even) .member-name {
+      color: var(--yellow);
+
+      -webkit-text-stroke: 1px var(--ink);
+    }
+
+    .member-description {
+      margin: 14px 0 0;
+
+      max-width: 90%;
+
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+
+    /* FUN FACT */
+
+    .fun-fact {
+      display: inline-block;
+
+      margin-top: 18px;
+      padding: 7px 11px;
+
+      background: var(--paper-2);
+
+      font-size: 12px;
+      font-weight: 700;
+
+      transform: rotate(-1deg);
+    }
+
+    .member-card:nth-child(even) .fun-fact {
+      background: #ffe1f7;
+      transform: rotate(1deg);
+    }
+
+
+    /* CARD DOODLES */
+
+    .member-card::after {
+      content: "✦";
+
+      position: absolute;
+      right: -17px;
+      bottom: 40px;
+
+      color: var(--pink);
+      font-size: 35px;
+
+      transform: rotate(12deg);
+    }
+
+    .member-card:nth-child(even)::after {
+      content: "♡";
+      color: var(--yellow);
+    }
+
+
+    /* GROUP ENDING */
+
+    .team-ending {
+      position: relative;
+
+      margin-bottom: 120px;
+      padding: 60px 40px;
+
+      text-align: center;
+
+      border: 3px solid var(--ink);
+
+      background: var(--yellow);
+      box-shadow: 12px 12px 0 var(--pink);
+    }
+
+    .team-ending .tiny {
+      margin: 0 0 10px;
+
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+    }
+
+    .team-ending h2 {
+      margin: 0;
+
+      font-family: "Noot", sans-serif;
+      font-size: clamp(45px, 7vw, 85px);
+      line-height: 1.05;
+
+      color: var(--pink);
+    }
+
+    .team-ending p {
+      margin: 18px 0 0;
+
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .team-hero {
+        padding-top: 70px;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .member-card,
+      .member-card:nth-child(even),
+      .member-card:nth-child(odd) {
+        transform: none;
+      }
+
+      .team-star-one {
+        right: 5%;
+      }
+
+      .team-heart {
+        display: none;
+      }
+
+      .team-ending {
+        padding: 45px 20px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<div class="grain"></div>
+
+<header class="site-header">
+
+  <a class="brand" href="index.html">
+
+    <img
+      src="synergy-logo.png"
+      class="brand-logo"
+      alt="Synergy Logo"
+      width="50"
+      height="50"
+    >
+
+    <span class="brand-text">
+      <strong>SYNERGY</strong>
+      <small>NIS STUCO ’26–’27</small>
+    </span>
+
+  </a>
+
+
+  <nav>
+    <a href="index.html#progress">Progress</a>
+    <a href="index.html#updates">Updates</a>
+    <a href="index.html#roadmap">Roadmap</a>
+    <a href="index.html#ideas">Your Voice</a>
+    <a href="team.html">Team</a>
+  </nav>
+
+</header>
+
+
+<main class="team-page">
+
+<section class="team-hero">
+
+  <div class="team-hero-text">
+
+    <p class="eyebrow">
+      (?) (x) (?) (=) (?)
+    </p>
+
+    <h1>
+      Meet the people<br>
+      behind
+      <span class="pink">SYNERGY.</span>
+    </h1>
+
+    <p class="team-intro">
+      Have you ever been curious about who are running for Synergy? Here is the chance to get to know the people behind Synergy!
+    </p>
+
+  </div>
+
+  <div class="team-group-photo">
+
+    <span class="photo-doodle doodle-one">✦</span>
+    <span class="photo-doodle doodle-two">♡</span>
+
+    <div class="group-photo-frame">
+
+      <img
+        src="group-photo.png"
+        alt="The Synergy Team"
+      >
+
+      <span class="photo-note">
+        THAT'S US! :)
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+ <section class="team-grid">
+
+
+    <!-- MEMBER 1 -->
+
+    <article class="member-card">
+
+      <span class="member-role">PRESIDENT</span>
+
+      <div class="member-photo">
+        <img src="1.png" alt="Synergy President">
+      </div>
+
+      <div class="member-info">
+
+        <h2 class="member-name">
+          KAKA
+        </h2>
+
+        <p class="member-description">
+          Add a short introduction here — personality,
+          what they care about, or what they want to bring
+          to Student Council.
+        </p>
+
+        <span class="fun-fact">
+          ★ FUN FACT: Add something here
+        </span>
+
+      </div>
+
+    </article>
+
+
+
+ <article class="member-card">
+
+      <span class="member-role">VICE PRESIDENT</span>
+
+      <div class="member-photo">
+        <img src="4.png" alt="Synergy Vice President">
+      </div>
+
+      <div class="member-info">
+
+        <h2 class="member-name">
+          ERIC
+        </h2>
+
+        <p class="member-description">
+          Add a short introduction here.
+        </p>
+
+        <span class="fun-fact">
+          ♡ FUN FACT: Add something here
+        </span>
+
+      </div>
+
+    </article>
+
+
+ <article class="member-card">
+
+      <span class="member-role">SECRETARY</span>
+
+      <div class="member-photo">
+        <img src="3.png" alt="Synergy Secretary">
+      </div>
+
+      <div class="member-info">
+
+        <h2 class="member-name">
+          MARIA
+        </h2>
+
+        <p class="member-description">
+          Add a short introduction here.
+        </p>
+
+        <span class="fun-fact">
+          ★ FUN FACT: Add something here
+        </span>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- MEMBER 4 -->
+
+    <article class="member-card">
+
+      <span class="member-role">TREASURER</span>
+
+      <div class="member-photo">
+        <img src="2.png" alt="Synergy Treasurer">
+      </div>
+
+      <div class="member-info">
+
+        <h2 class="member-name">
+          VIVI
+        </h2>
+
+        <p class="member-description">
+          Add a short introduction here.
+        </p>
+
+        <span class="fun-fact">
+          ♡ FUN FACT: Add something here
+        </span>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- MEMBER 5 -->
+
+    <article class="member-card">
+
+      <span class="member-role">PUBLIC RELATIONS</span>
+
+      <div class="member-photo">
+        <img src="5.png" alt="Synergy Public Relations">
+      </div>
+
+      <div class="member-info">
+
+        <h2 class="member-name">
+          BOB
+        </h2>
+
+        <p class="member-description">
+          Add a short introduction here.
+        </p>
+
+        <span class="fun-fact">
+          ★ FUN FACT: Add something here
+        </span>
+
+      </div>
+
+    </article>
+
+  </section>
+
+
+
+  <!-- =====================
+       ENDING
+       ===================== -->
+
+  <section class="team-ending">
+
+    <p class="tiny">
+      DIFFERENT PEOPLE · DIFFERENT STRENGTHS
+    </p>
+
+    <h2>
+      ONE SYNERGY.
+    </h2>
+
+    <p>
+      Where We Meet, We Multiply.
+    </p>
+
+  </section>
+
+
+</main>
+
+</body>
+</html>
