@@ -1,4 +1,4 @@
-const CACHE_NAME = "synergy-v1";
+const CACHE_NAME = "synergy-v2";
 
 const FILES_TO_CACHE = [
   "./",
@@ -7,8 +7,8 @@ const FILES_TO_CACHE = [
   "./style.css",
   "./script.js",
   "./synergy-logo.png",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png"
+  "./icon-192.png",
+  "./icon-512.png"
 ];
 
 self.addEventListener("install", event => {
