@@ -6,28 +6,110 @@ const projects = [
     progress: 100,
     status: "complete"
   },
+
   {
     title: "More Student-Led Events",
     category: "School Life",
-    description: "Allowing more student to take the leadership role.",
-    progress: 0,
+    description: "Create more opportunities for students to lead, organize, and participate in school events.",
+    progress: 10,
     status: "planned"
   },
+
   {
-    title: "High School Field Awning",
-    category: "Community",
-    description: "Student are able to play volleyball without getting too hot.",
-    progress: 0,
+    title: "Better School Lunch",
+    category: "Food & Dining",
+    description: "One of the most requested improvements from students!",
+    progress: 5,
     status: "planned"
+  },
+
+  {
+    title: "More Seating Around Campus",
+    category: "Campus",
+    description: "Add more benches and seating areas around D-Building (High School Building).",
+    progress: 5,
+    status: "planned"
+  },
+
+  {
+    title: "More Shade At High School",
+    category: "Campus",
+    description: "Add more shade around the High School field so students can enjoy outdoor activities without getting too hot.",
+    progress: 10,
+    status: "planned"
+  },
+
+  {
+    title: "Snack Shop Improvements",
+    category: "Food & Dining",
+    description: "More snack choices and additional microwaves at the snack shop.",
+    progress: 5,
+    status: "planned"
+  },
+
+  {
+    title: "High School Volleyball Equipment",
+    category: "Sports",
+    description: "Make more volleyball equipment available at the High School field.",
+    progress: 5,
+    status: "planned"
+  },
+
+  {
+    title: "High School Nurse Room",
+    category: "Student Wellbeing",
+    description: "Explore easier access to nurse services within the High School area.",
+    progress: 5,
+    status: "planned"
+  },
+
+  {
+    title: "Better Grade-Level Field Trips",
+    category: "School Life",
+    description: "Create more engaging and meaningful field trip opportunities.",
+    progress: 5,
+    status: "planned"
+  },
+
+  {
+    title: "Senior Experience",
+    category: "School Life",
+    description: "Explore senior jackets and professional senior photo opportunities.",
+    progress: 5,
+    status: "planned"
+  },
+
+  {
+    title: "Semester Party",
+    category: "Events",
+    description: "You shouldn't have to wait until the end of the year for Prom!",
+    progress: 10,
+    status: "planned"
+  },
+
+  {
+    title: "House System",
+    category: "Community",
+    description: "A four-house system with activities, points, competitions, and an end-of-year reward for the winning house.",
+    progress: 10,
+    status: "planned"
+  },
+
+  {
+    title: "Student Voice & Transparency",
+    category: "STUCO",
+    description: "Listen to student feedback, publicly respond to ideas, and keep our progress visible.",
+    progress: 50,
+    status: "active"
   },
 
   {
     title: "Curious?",
     category: "STUCO",
-    description: "You might ask why there is only few projects rn...you will see much more than this once you vote for Synergy!",
+    description: "There's much more to come. Vote SYNERGY and see what we can build together!",
     progress: 50,
     status: "active"
-  },
+  }
 ];
 
 const updates = [
