@@ -36,7 +36,7 @@ const projects = [
     description: "Organize school fundraisers with clear goals to support communities in need.",
     progress: 5,
     status: "planned"
-  }
+  },
   {
     title: "More Seating Around Campus",
     category: "Campus",
