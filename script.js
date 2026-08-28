@@ -22,7 +22,21 @@ const projects = [
     progress: 5,
     status: "planned"
   },
+  {
+    title: "Daily Positive Messages",
+    category: "Student Wellbeing",
+    description: "Share daily quotes, positive messages, relatable reminders, and social-emotional learning messages through homeroom slides.",
+    progress: 5,
+    status: "planned"
+  },
 
+  {
+    title: "School Fundraisers",
+    category: "Community",
+    description: "Organize school fundraisers with clear goals to support communities in need.",
+    progress: 5,
+    status: "planned"
+  }
   {
     title: "More Seating Around Campus",
     category: "Campus",
