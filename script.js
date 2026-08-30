@@ -1,130 +1,11 @@
-const projects = [
-  {
-    title: "SYNERGY - NIS STUCO CANDIDATE 26'-27'",
-    category: "STUCO",
-    description: "Where we meet, we multiply.",
-    progress: 100,
-    status: "complete"
-  },
+import { db } from "./firebase.js";
 
-  {
-    title: "More Student-Led Events",
-    category: "School Life",
-    description: "Create more opportunities for students to lead, organize, and participate in school events.",
-    progress: 10,
-    status: "planned"
-  },
+import {
+  collection,
+  onSnapshot
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
-  {
-    title: "Better School Lunch",
-    category: "Food & Dining",
-    description: "One of the most requested improvements from students!",
-    progress: 5,
-    status: "planned"
-  },
-  {
-    title: "Daily Positive Messages",
-    category: "Student Wellbeing",
-    description: "Share daily quotes, positive messages, relatable reminders, and social-emotional learning messages through homeroom slides.",
-    progress: 5,
-    status: "planned"
-  },
-
-  {
-    title: "School Fundraisers",
-    category: "Community",
-    description: "Organize school fundraisers with clear goals to support communities in need.",
-    progress: 5,
-    status: "planned"
-  },
-  {
-    title: "More Seating Around Campus",
-    category: "Campus",
-    description: "Add more benches and seating areas around D-Building (High School Building).",
-    progress: 5,
-    status: "planned"
-  },
-
-  {
-    title: "More Shade At High School",
-    category: "Campus",
-    description: "Add more shade around the High School field so students can enjoy outdoor activities without getting too hot.",
-    progress: 10,
-    status: "planned"
-  },
-
-  {
-    title: "Snack Shop Improvements",
-    category: "Food & Dining",
-    description: "More snack choices and additional microwaves at the snack shop.",
-    progress: 5,
-    status: "planned"
-  },
-
-  {
-    title: "High School Volleyball Equipment",
-    category: "Sports",
-    description: "Make more volleyball equipment available at the High School field.",
-    progress: 5,
-    status: "planned"
-  },
-
-  {
-    title: "High School Nurse Room",
-    category: "Student Wellbeing",
-    description: "Explore easier access to nurse services within the High School area.",
-    progress: 5,
-    status: "planned"
-  },
-
-  {
-    title: "Better Grade-Level Field Trips",
-    category: "School Life",
-    description: "Create more engaging and meaningful field trip opportunities.",
-    progress: 5,
-    status: "planned"
-  },
-
-  {
-    title: "Senior Experience",
-    category: "School Life",
-    description: "Explore senior jackets and professional senior photo opportunities.",
-    progress: 5,
-    status: "planned"
-  },
-
-  {
-    title: "Semester Party",
-    category: "Events",
-    description: "You shouldn't have to wait until the end of the year for Prom!",
-    progress: 10,
-    status: "planned"
-  },
-
-  {
-    title: "House System",
-    category: "Community",
-    description: "A four-house system with activities, points, competitions, and an end-of-year reward for the winning house.",
-    progress: 10,
-    status: "planned"
-  },
-
-  {
-    title: "Student Voice & Transparency",
-    category: "STUCO",
-    description: "Listen to student feedback, publicly respond to ideas, and keep our progress visible.",
-    progress: 50,
-    status: "active"
-  },
-
-  {
-    title: "Curious?",
-    category: "STUCO",
-    description: "There's much more to come. Vote SYNERGY and see what we can build together!",
-    progress: 50,
-    status: "active"
-  }
-];
+let projects = [];
 
 const updates = [
   {
@@ -285,6 +166,30 @@ document.getElementById("ideaButton").addEventListener("click", event => {
   toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 2600);
 });
+
+onSnapshot(
+  collection(db, "projects"),
+
+  (snapshot) => {
+    const firebaseProjects = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+
+    console.log("Firestore projects:", firebaseProjects);
+
+    if (firebaseProjects.length > 0) {
+      projects = firebaseProjects;
+
+      renderProjects();
+      updateDashboard();
+    }
+  },
+
+  (error) => {
+    console.error("Firestore error:", error);
+  }
+);
 
 renderProjects();
 renderUpdates();
